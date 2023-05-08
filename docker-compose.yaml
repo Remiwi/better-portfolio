@@ -1,0 +1,16 @@
+services:
+  client:
+    image: portfolio-client
+    ports:
+      - 3000:3000
+    container_name: portfolio-client
+  database:
+    image: portfolio-db
+    volumes:
+      - portfolio-db:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: mysecretpassword
+    container_name: portfolio-db
+
+volumes:
+  portfolio-db:
