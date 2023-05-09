@@ -2,7 +2,7 @@ CREATE DATABASE portfolio;
 USE portfolio;
 CREATE TABLE Posts (
   PostID INT NOT NULL AUTO_INCREMENT,
-  PostType VARCHAR(100) NOT NULL,
+  PostType enum('Project', 'Blog') NOT NULL,
   Directory VARCHAR(100) NOT NULL,
   Postname VARCHAR(100) NOT NULL,
   Title VARCHAR(100) NOT NULL,
