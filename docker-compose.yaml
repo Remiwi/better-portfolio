@@ -2,20 +2,24 @@ services:
   client:
     container_name: portfolio-client
     image: portfolio-client
+    command: sh -c "npm install && npm run dev"
     ports:
       - 3000:3000
+    working_dir: /app
+    volumes:
+      - ./client:/app
   database:
     container_name: portfolio-db
     image: portfolio-db
     volumes:
       - portfolio-db:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: mysecretpassword
+      MYSQL_ROOT_PASSWORD: password
   server:
     container_name: portfolio-server
     image: portfolio-server
     ports:
-      - 8080:8080
+      - 8888:8888
 
 volumes:
   portfolio-db:
